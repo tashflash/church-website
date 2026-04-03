@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLAMES OF REVIVAL | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <h1 class="logo">FLAMES OF REVIVAL</h1>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#sermons">Sermons</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h2>Scripture of the Day</h2>
+        <div id="daily-verse">
+            <p id="verse-text">"Loading the Word..."</p>
+            <span id="verse-ref"></span>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <main>
+        <div class="card" style="text-align: center; border-bottom: 2px solid var(--accent);">
+            <h2 style="justify-content: center; border: none;">Welcome to the Fire</h2>
+            <p style="margin-bottom: 20px; color: var(--text-dim);">
+                Experience the presence of God and the warmth of a loving family. 
+                Whether you are joining us in person or online, there is a place for you here.
+            </p>
+            <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <a href="#contact" class="btn-copy" style="text-decoration: none; width: auto; padding: 12px 25px;">I'm New Here</a>
+                <a href="#sermons" class="btn-copy" style="text-decoration: none; width: auto; padding: 12px 25px; background: transparent; border: 1px solid var(--accent); color: var(--accent);">Watch Sermons</a>
+            </div>
+        </div>
+
+        <div class="card" style="text-align: center; border: 1px solid var(--accent); background: rgba(251, 191, 36, 0.05);">
+            <h2 style="border:none; padding:0; justify-content: center;">Next Gathering</h2>
+            <div id="countdown-timer" style="font-size: 1.2rem; font-weight: bold; color: var(--accent);">
+                Calculating...
+            </div>
+        </div>
+
+        <section id="about" class="page-section">
+            <div class="card">
+                <h2>About Our Ministry</h2>
+                <p>Flames of Revival is a spirit-filled ministry located in Nansana. We are dedicated to the restoration of souls, deep biblical teaching, and power-packed worship. Our mission is to raise a generation that carries the fire of the Holy Spirit to the ends of the earth.</p>
+            </div>
+        </section>
+
+        <section id="sermons" class="page-section">
+            <div class="card">
+                <h2>Latest Sermon</h2>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/uHKjYohD31U?si=Pi397rvyOMICbB_f&amp;start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p style="margin-top:15px;">Join us live every Sunday at 8:00 AM & 10:00 AM.</p>
+            </div>
+        </section>
+
+        <div class="card">
+            <h2>Church Calendar</h2>
+            <div class="video-container">
+                <iframe 
+                    id="calendar-frame" 
+                    src="https://calendar.google.com/calendar/embed?src=en.ug%23holiday%40group.v.calendar.google.com&ctz=Africa%2FKampala&mode=AGENDA&showTitle=0&showNav=1&showPrint=0&showTabs=0&showCalendars=0" 
+                    style="border: 0" 
+                    frameborder="0" 
+                    scrolling="no">
+                </iframe>
+            </div>
+        </div>
+
+        <section id="contact" class="page-section">
+            <div class="card">
+                <h2>Get In Touch</h2>
+                <p>Have a prayer request or want to visit? Reach out to us.</p>
+                <p style="margin: 10px 0;"><strong>Location:</strong> Buloba, Kampala - Uganda</p>
+                <p><strong>Phone:</strong> +256 782 564 249, +256 756 768 331</p>
+                <p><strong>Email:</strong> info@flamesofrevival.org</p>
+            </div>
+        </section>
+    </main>
+
+    <aside>
+        <div class="card" style="background: rgba(37, 211, 102, 0.1); border-left: 5px solid #25D366;">
+            <h2 style="color: #25D366; border-color: #25D366;">Join the Community</h2>
+            <p style="font-size: 0.9rem; margin-bottom: 15px;">Stay updated with daily devotionals and announcements.</p>
+            <a href="https://wa.me/256782564249" target="_blank" class="btn-copy" style="background: #25D366; color: white; text-decoration: none; display: block; text-align: center;">Chat on WhatsApp</a>
+        </div>
+
+        <div class="card giving-card">
+            <h2>Tithes & Offerings</h2>
+            <p>Support the ministry directly via Mobile Money:</p>
+            
+            <div class="momo-box mtn">
+                <p><strong>MTN Pay Number</strong></p>
+                <span class="code" id="mtn-code">0782564249</span> 
+                <button class="btn-copy" onclick="copyCode('mtn-code')">Copy Number</button>
+            </div>
+
+            <div class="momo-box airtel">
+                <p><strong>Airtel Pay Number</strong></p>
+                <span class="code" id="airtel-code">0756768331</span>
+                <button class="btn-copy" onclick="copyCode('airtel-code')">Copy Number</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Service Hours</h2>
+            <p><strong>Sunday:</strong> 8:00 AM & 10:00 AM</p>
+            <p><strong>Wednesday:</strong> 5:00 PM (Mid-week)</p>
+            <p><strong>Thursday:</strong> 3:00 PM (Intercession)</p>
+        </div>
+    </aside>
+</div>
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <h3 class="logo" style="margin-bottom: 15px;">FLAMES OF REVIVAL</h3>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">
+                A Christ-centered community dedicated to spreading the fire of the Gospel and transforming lives through the power of the Holy Spirit.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Navigation</h4>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#sermons">Latest Sermons</a></li>
+                <li><a href="#contact">Prayer Request</a></li>
+                <li><a href="#giving">Online Giving</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Visit Us</h4>
+            <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 10px;">
+                Buloba, Kampala - Uganda<br>
+                Near Buloba High School
+            </p>
+            <p style="color: var(--accent); font-weight: bold;">+256 782 564 249</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Flames of Revival Ministry. All Rights Reserved.</p>
+        <p style="font-size: 0.7rem; opacity: 0.5; margin-top: 5px;">Built for the Glory of God</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

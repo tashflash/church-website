@@ -1,0 +1,319 @@
+/* --- 1. VARIABLES & RESET --- */
+:root {
+    --primary: #0f172a;    /* Deep Midnight Blue */
+    --accent: #fbbf24;     /* Vibrant Gold */
+    --accent-hover: #f59e0b;
+    --card-bg: rgba(30, 41, 59, 0.6); 
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+    --mtn-yellow: #ffcc00;
+    --airtel-red: #ef4444;
+}
+
+/* ENABLE SMOOTH SCROLLING */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+    background-attachment: fixed;
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- 2. NAVIGATION (Sticky & Blur) --- */
+nav {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #fff, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent);
+}
+
+/* --- 3. SECTION SPACING & HERO --- */
+/* This prevents the sticky nav from covering section titles when you click a link */
+.page-section {
+    scroll-margin-top: 100px; 
+    padding-top: 10px;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    scroll-margin-top: 150px;
+}
+
+#daily-verse {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 30px;
+    background: var(--card-bg);
+    border-radius: 24px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+#verse-text {
+    font-size: 1.4rem;
+    font-style: italic;
+    margin-bottom: 12px;
+    font-weight: 300;
+}
+
+#verse-ref {
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* --- 4. MAIN LAYOUT (BALANCED) --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 7fr 3.5fr;
+    gap: 25px;
+    padding: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    margin-bottom: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+h2 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--accent);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h2::before {
+    content: '';
+    width: 4px;
+    height: 18px;
+    background: var(--accent);
+    display: inline-block;
+    border-radius: 2px;
+}
+
+/* --- 5. VIDEO & TIMER UI --- */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+}
+
+#countdown-timer {
+    background: rgba(251, 191, 36, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px dashed var(--accent);
+}
+
+/* --- 6. GIVING (MTN & AIRTEL STYLES) --- */
+.momo-box {
+    padding: 15px;
+    border-radius: 12px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.mtn { border-left: 5px solid var(--mtn-yellow); background: rgba(255, 204, 0, 0.05); }
+.airtel { border-left: 5px solid var(--airtel-red); background: rgba(239, 68, 68, 0.05); }
+
+.code {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+
+.btn-copy {
+    background: var(--accent);
+    color: #111;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.btn-copy:active { transform: scale(0.98); }
+
+/* --- 7. FOOTER --- */
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+}
+
+/* --- 8. MOBILE RESPONSIVE (BALANCING) --- */
+@media (max-width: 1024px) {
+    .container { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .nav-container { flex-direction: column; gap: 15px; }
+    .nav-links { gap: 12px; }
+    
+    .hero { padding: 30px 10px; }
+    #verse-text { font-size: 1.1rem; }
+    
+    .logo { font-size: 1.1rem; }
+    
+    .card { padding: 20px; }
+
+    /* Adjust scroll margin for mobile navigation height */
+    .page-section { scroll-margin-top: 140px; }
+}
+
+.card-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
+/* --- FOOTER STYLES --- */
+.main-footer {
+    background: rgba(15, 23, 42, 0.95);
+    border-top: 1px solid var(--glass-border);
+    padding: 60px 20px 20px 20px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* Wider info col, narrower link cols */
+    gap: 40px;
+}
+
+.footer-col h4 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+}
+
+/* --- MOBILE FOOTER --- */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Stack everything on phones */
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .footer-links a:hover {
+        padding-left: 0;
+    }
+}
