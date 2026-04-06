@@ -358,32 +358,43 @@ footer {
         opacity: 0;
     }
 }
-.member-container {
+/* --- MOBILE SETTINGS (The "Different" Look) --- */
+.member-wrapper {
     display: flex;
-    flex-wrap: wrap; /* Allows them to wrap on phones */
-    justify-content: center; /* Centers them horizontally */
+    overflow-x: auto; /* Enable horizontal swipe */
     gap: 20px;
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 20px;
+    scroll-snap-type: x mandatory; /* Cards snap into place */
+    -webkit-overflow-scrolling: touch; /* Smooth swipe for iPhone */
+}
+
+/* Hide the ugly scrollbar on phones */
+.member-wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 .member-card {
+    flex: 0 0 260px; /* Each card stays exactly 260px wide on mobile */
+    scroll-snap-align: center;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #facc15; /* Your Gold color */
+    border: 1px solid #facc15;
     border-radius: 15px;
-    padding: 30px;
-    width: 280px; /* Fixed width so they stay consistent */
+    padding: 25px;
     text-align: center;
-    transition: 0.3s;
 }
 
-.member-card h3 {
-    color: #fff;
-    margin-bottom: 10px;
-}
-
-.member-card p {
-    color: #facc15;
-    font-size: 0.9rem;
+/* --- DESKTOP SETTINGS (The "Normal" Look) --- */
+@media (min-width: 1024px) {
+    .member-wrapper {
+        display: flex;
+        flex-wrap: wrap; /* Let them wrap if needed */
+        justify-content: center; /* Center them in a nice row */
+        overflow-x: hidden; /* No swiping on desktop */
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .member-card {
+        flex: 0 1 250px; /* Normal size on desktop */
+    }
 }
