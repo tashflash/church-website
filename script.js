@@ -31,7 +31,7 @@ function updateCountdown() {
     
     // Define your 4 weekly services (0=Sun, 3=Wed, 4=Thu)
     const services = [
-        { day: 3, hour: 17, min: 0, label: "Youth Mid-week (Wed)" }, // Wed 5pm
+        { day: 3, hour: 17, min: 0, label: "Mid-week (Wed)" }, // Wed 5pm
         { day: 4, hour: 15, min: 0, label: "Thursday Service" },     // Thu 3pm
         { day: 0, hour: 8,  min: 0, label: "1st Sunday Service" },   // Sun 8am
         { day: 0, hour: 10, min: 0, label: "2nd Sunday Service" }    // Sun 10am
@@ -142,4 +142,3 @@ window.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
     setInterval(updateCountdown, 60000);
 });
-

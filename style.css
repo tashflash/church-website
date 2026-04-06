@@ -317,3 +317,73 @@ footer {
         padding-left: 0;
     }
 }
+/* Container to hold the bubbles behind everything */
+.bubbles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Puts it behind your text */
+    overflow: hidden;
+    background: #0f172a; /* Your site background color */
+}
+
+.bubble {
+    position: absolute;
+    bottom: -150px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: float 15s infinite linear;
+}
+
+/* Create different sizes and speeds for each bubble */
+.bubble:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-duration: 10s; }
+.bubble:nth-child(2) { width: 40px; height: 40px; left: 20%; animation-duration: 18s; animation-delay: 2s; }
+.bubble:nth-child(3) { width: 120px; height: 120px; left: 40%; animation-duration: 15s; animation-delay: 4s; }
+.bubble:nth-child(4) { width: 60px; height: 60px; left: 70%; animation-duration: 22s; }
+.bubble:nth-child(5) { width: 100px; height: 100px; left: 85%; animation-duration: 12s; animation-delay: 3s; }
+.bubble:nth-child(6) { width: 50px; height: 50px; left: 50%; animation-duration: 20s; animation-delay: 7s; }
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+.member-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows them to wrap on phones */
+    justify-content: center; /* Centers them horizontally */
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.member-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #facc15; /* Your Gold color */
+    border-radius: 15px;
+    padding: 30px;
+    width: 280px; /* Fixed width so they stay consistent */
+    text-align: center;
+    transition: 0.3s;
+}
+
+.member-card h3 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.member-card p {
+    color: #facc15;
+    font-size: 0.9rem;
+}
