@@ -133,20 +133,22 @@
     </aside>
 </div>
 <div id="chat-bubble" onclick="toggleChat()">
-    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968771.png" width="30px">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg" width="30px">
 </div>
 
 <div id="simple-bot">
     <div class="bot-header">
-        <span>Flames of Revival Assistant</span>
-        <button onclick="toggleChat()" style="background:none; border:none; cursor:pointer;">✕</button>
+        <span>Flames Assistant</span>
+        <span onclick="toggleChat()" style="cursor:pointer">✕</span>
     </div>
+    
     <div id="chat-logs">
-        <p class="bot-text">PRAISE GOD. How can I help you, brethren?</p>
+        <p>PRAISE GOD. How can I help you, brethren?</p>
     </div>
+
     <div class="bot-input">
-        <input type="text" id="user-msg" placeholder="Enter command..." onkeypress="if(event.key === 'Enter') talkToBot()">
-        <button onclick="talkToBot()" style="background:#facc15; border:none; padding:8px 15px; border-radius:5px; cursor:pointer; font-weight:bold;">Send</button>
+        <input type="text" id="user-msg" placeholder="Enter command...">
+        <button onclick="talkToBot()" style="background:#facc15; border:none; padding:8px; border-radius:5px; font-weight:bold;">Send</button>
     </div>
 </div>
 <footer class="main-footer">
