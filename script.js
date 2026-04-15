@@ -166,8 +166,8 @@ function talkToBot() {
     else if (msg.includes("give") || msg.includes("offering") || msg.includes("tithe")) {
         reply = "You can give via Mobile Money on 0756768331 or visit the giving desk at church.";
     }
-    else if (msg.includes("youth") || msg.includes("teen")) {
-        reply = "Our Youth 'Fire-Brands' meet every Saturday at 4:00 PM!";
+    else if (msg.includes("Choir practice") || msg.includes("Practices")) {
+        reply = "Our choir practices take place every Saturday at 4:00 PM!";
     }
     else if (msg.includes("join") || msg.includes("member")) {
         reply = "We'd love to have you! Visit the 'New Believers' tent after Sunday service.";
