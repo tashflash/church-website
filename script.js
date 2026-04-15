@@ -78,7 +78,6 @@ function updateCountdown() {
     }
 }
 
-// 3. INTERACTIVE CLIPBOARD (MOBILE MONEY)
 function copyCode(id) {
     const codeText = document.getElementById(id).innerText;
     const btn = document.querySelector(`button[onclick="copyCode('${id}')"]`);
@@ -89,7 +88,6 @@ function copyCode(id) {
         btn.style.background = "#22c55e"; // Success Green
         btn.style.transform = "scale(1.05)";
         
-        // Haptic-like feedback for mobile
         if (window.navigator.vibrate) window.navigator.vibrate(50);
 
         setTimeout(() => {
@@ -100,7 +98,7 @@ function copyCode(id) {
     });
 }
 
-// 4. SCROLL REVEAL ANIMATION
+
 const revealOnScroll = () => {
     const cards = document.querySelectorAll('.card');
     const windowHeight = window.innerHeight;
@@ -114,7 +112,6 @@ const revealOnScroll = () => {
     });
 };
 
-// 5. MOUSE/TOUCH GLOW EFFECT (The "Stunning" Background)
 function initGlow() {
     document.addEventListener('mousemove', (e) => {
         const x = e.clientX;
@@ -123,12 +120,10 @@ function initGlow() {
     });
 }
 
-// INITIALIZE EVERYTHING
 window.addEventListener('DOMContentLoaded', () => {
     fetchDailyVerse();
     initGlow();
     
-    // Set initial state for animations
     document.querySelectorAll('.card').forEach(card => {
         card.style.opacity = "0";
         card.style.transform = "translateY(30px)";
@@ -142,3 +137,47 @@ window.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
     setInterval(updateCountdown, 60000);
 });
+function toggleChat() {
+    const bot = document.getElementById("simple-bot");
+    bot.classList.toggle("active");
+}
+
+function talkToBot() {
+    const input = document.getElementById("user-msg");
+    const logs = document.getElementById("chat-logs");
+    const msg = input.value.trim().toLowerCase();
+
+    if (!msg) return;
+
+    logs.innerHTML += `<div class="user-text">${input.value}</div>`;
+    input.value = "";
+
+    let reply = "Processing request...";
+    
+    // ... inside the talkToBot function ...
+
+    if (msg.includes("time")) {
+        reply = "Sunday Service: 9:00 AM. Mid-week: Wednesday 5:00 PM.";
+    } 
+    else if (msg.includes("location")) {
+        reply = "Located in BULOBA opposite Buloba High School along Mityana road ";
+    }
+    // --- NEW COMMANDS START HERE ---
+    else if (msg.includes("give") || msg.includes("offering") || msg.includes("tithe")) {
+        reply = "You can give via Mobile Money on 0756768331 or visit the giving desk at church.";
+    }
+    else if (msg.includes("youth") || msg.includes("teen")) {
+        reply = "Our Youth 'Fire-Brands' meet every Saturday at 4:00 PM!";
+    }
+    else if (msg.includes("join") || msg.includes("member")) {
+        reply = "We'd love to have you! Visit the 'New Believers' tent after Sunday service.";
+    }
+    else {
+        reply = "Request received. For complex tasks, please contact the main office.";
+    }
+
+    setTimeout(() => {
+        logs.innerHTML += `<div class="bot-text"><b>Assistant:</b> ${reply}</div>`;
+        logs.scrollTop = logs.scrollHeight;
+    }, 600);
+}

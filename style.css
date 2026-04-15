@@ -358,3 +358,105 @@ footer {
         opacity: 0;
     }
 }
+/* Floating Bubble Icon */
+#chat-bubble {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
+    background: #facc15;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.4);
+    z-index: 1000;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#chat-bubble:hover { transform: scale(1.1); }
+
+/* The "Space Box" Chat Window */
+#simple-bot {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 340px;
+    height: 450px;
+    background: rgba(15, 23, 42, 0.8); /* Semi-transparent dark blue */
+    backdrop-filter: blur(15px); /* Glassmorphism/Space effect */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(250, 204, 21, 0.5);
+    border-radius: 20px;
+    z-index: 1001;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+
+    /* --- THE ENLARGING ANIMATION --- */
+    transform-origin: bottom right; /* Grows FROM the bubble */
+    transform: scale(0); /* Starts at zero size */
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); /* Bouncy expansion */
+    pointer-events: none;
+}
+
+/* State when active */
+#simple-bot.active {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Header & Content Styling */
+.bot-header {
+    background: rgba(250, 204, 21, 0.9);
+    color: #000;
+    padding: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+#chat-logs {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    color: white;
+}
+
+.bot-text {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 12px 12px 12px 0;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.user-text {
+    background: #facc15;
+    color: #000;
+    padding: 10px;
+    border-radius: 12px 12px 0 12px;
+    margin-bottom: 10px;
+    align-self: flex-end;
+    text-align: right;
+}
+
+.bot-input {
+    display: flex;
+    padding: 10px;
+    background: rgba(0,0,0,0.3);
+}
+
+#user-msg {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 10px;
+    outline: none;
+}
